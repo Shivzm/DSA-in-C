@@ -1,3 +1,5 @@
+// Array Implementation of Stack
+
 #include<stdio.h>
 
 #define MAX_SIZE 101
