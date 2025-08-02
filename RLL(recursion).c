@@ -1,4 +1,4 @@
-// Pinting Reverse Linked List using recursion
+// Pinting a Reverse Linked List using recursion
 #include<stdio.h>
 #include<stdlib.h>
 
