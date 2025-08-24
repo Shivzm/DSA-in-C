@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<math.h>
 #define MAX 100
 
 int stack[MAX];
@@ -100,14 +101,37 @@ void InToPost() {
         Postfix[j++] = pop();
     }
     Postfix[j]= '\0';
-    printf("Postfix: %s\n", Postfix);
+    printf("Postfix Expression: %s\n", Postfix);
 }
 
 int Post_eval() {
 
+    int a,b;
+
     for(int i=0; i<(int)strlen(Postfix); i++) {
-        
+        if(Postfix[i] >= '0' && Postfix[i] <= '9') {
+            push(Postfix[i] - '0');
+        }
+        else {
+            a=pop();
+            b=pop();
+
+            switch(Postfix[i]) {
+                case '+': push(b+a);
+                          break;
+                case '-': push(b-a);
+                          break;
+                case '*': push(b*a);
+                          break;
+                case '/': push(b/a);
+                          break;
+                case '^': push(pow(b, a));
+                          break;
+            }
+        }
     }
+
+    return pop();
 }
 
 int main () {
@@ -119,5 +143,6 @@ int main () {
 
     InToPost();
     result = Post_eval();
+    printf("The restult obtained after postfix operation is: %d\n", result);
     return 0;
 }
