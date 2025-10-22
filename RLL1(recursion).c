@@ -23,7 +23,7 @@ void ReverseList(struct node *p) {
 
 void print(struct node *n) {
     while(n!= NULL) {
-        printf("%d", n->next);
+        printf("%d", n->val);
         n = n->next;
         if(n != NULL) {
             printf(" -> ");
@@ -39,7 +39,7 @@ int main () {
     temp1 = head;
     for(int i =2; i <= 10; i += 2) {
         temp2 = (struct node*)malloc(sizeof(struct node*));
-        temp2->data = i;
+        temp2->val = i;
         temp2->next = NULL;
         temp1->next = temp2;
         temp1 = temp2;
