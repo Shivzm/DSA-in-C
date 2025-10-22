@@ -34,7 +34,7 @@ void print(struct node *n) {
 int main () {
     struct node *temp1, *temp2;
     head = (struct node*)malloc(sizeof(struct node*));
-    head-> data=1;
+    head-> val=1;
     head->next=NULL;
     temp1 = head;
     for(int i =2; i <= 10; i += 2) {
